@@ -1,5 +1,5 @@
 class Charity < ApplicationRecord
   belongs_to :user
   belongs_to :cause
-  has_many :donations
+  has_many :donations, dependent: :destroy
 end
