@@ -7,6 +7,7 @@ class DonationsController < ApplicationController
 
     def create
       @donation = Donation.new(donation_params)
+      @donation.charity = @charity
     end
 
 
