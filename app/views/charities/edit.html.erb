@@ -2,46 +2,18 @@
 
 <h1>Edit <%= @charity.name %></h1>
 
-<%= form_with model: @charity, url: charity_path(@charity), method: :patch do |form| %>
-  <% if @charity.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@charity.errors.count, "error") %> prohibited this charity from being saved:</h2>
-      <ul>
-      <% @charity.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
+<%= form_with model: @charity do |form| %>
     <%= form.label :name %>
     <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
     <%= form.label :total_donations %>
     <%= form.number_field :total_donations %>
-  </div>
-
-  <div class="field">
     <%= form.label :address %>
     <%= form.text_field :address %>
-  </div>
-
-  <div class="field">
     <%= form.label :accepting %>
     <%= form.select :accepting, [['Yes', true], ['No', false]], selected: @charity.accepting %>
-  </div>
-
-  <div class="field">
     <%= form.label :cause %>
     <%= form.text_field :cause %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "Update Charity" %>
-  </div>
+    <%= form.submit %>
 <% end %>
 
 <%= link_to "Cancel", charity_path(@charity) %> |

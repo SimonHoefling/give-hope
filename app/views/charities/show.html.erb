@@ -17,8 +17,29 @@
   </tr>
   <tr>
     <th>Cause:</th>
-    <td><%= @charity.cause %></td>
+    <td><%= @charity.cause.name %></td>
   </tr>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Amount</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @charity.donations.each do |donation| %>
+      <tr>
+        <td><%= donation.user.name %></td>
+        <td><%= donation.donations_amount %></td>
+        <td><%= donation.started %></td>
+        <td><%= donation.ended %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
 <%= link_to "Edit", edit_charity_path(@charity) %> |
