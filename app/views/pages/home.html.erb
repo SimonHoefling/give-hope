@@ -1,2 +1,21 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="home-container">
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white">DonateNow</a>
+    <form class="d-flex" role="search">
+    <%= link_to 'Log in', new_user_session_path , class: 'btn btn-outline-light mx-3 log-in-btn' %>
+    <%= link_to 'Sign up', new_user_registration_path , class: 'btn btn-outline-light mx-3 log-in-btn' %>
+    </form>
+  </div>
+</nav>
+
+  <h1 class="text-white heading">Your way to help</h1>
+
+  <form class="text-center mt-5 search-form" action="/search" method="get">
+      <input type="text" name="q" placeholder="&#xF002; Search" class="fas input-form" style="font-family: Arial, Font Awesome 6 Free">
+      <button class="submit-btn" type="submit">Find a charity</button>
+  </form>
+
+
+  <%# <button  class='list-btn text-center'><%= link_to 'List charities', charities_path, class: 'listing-link'%></button> %>
+</div>
