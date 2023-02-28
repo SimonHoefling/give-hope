@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :charities do
-    resources :donations
+    resources :donations only: [:create, :new]
   end
 end
