@@ -6,8 +6,11 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+
+# CHARITY name, description, address, total_donations, accepting
+
+# USER email
 puts "Cleaning database..."
 Charity.destroy_all
 
 puts "Creating charities..."
-
