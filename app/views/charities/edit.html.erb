@@ -1,8 +1,8 @@
-<!-- app/views/charities/new.html.erb -->
+<!-- app/views/charities/edit.html.erb -->
 
-<h1>New Charity</h1>
+<h1>Edit <%= @charity.name %></h1>
 
-<%= form_with model: @charity, url: charities_path do |form| %>
+<%= form_with model: @charity, url: charity_path(@charity), method: :patch do |form| %>
   <% if @charity.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@charity.errors.count, "error") %> prohibited this charity from being saved:</h2>
@@ -31,7 +31,7 @@
 
   <div class="field">
     <%= form.label :accepting %>
-    <%= form.select :accepting, [['Yes', true], ['No', false]] %>
+    <%= form.select :accepting, [['Yes', true], ['No', false]], selected: @charity.accepting %>
   </div>
 
   <div class="field">
@@ -40,8 +40,9 @@
   </div>
 
   <div class="actions">
-    <%= form.submit "Create Charity" %>
+    <%= form.submit "Update Charity" %>
   </div>
 <% end %>
 
+<%= link_to "Cancel", charity_path(@charity) %> |
 <%= link_to "Back to Charities", charities_path %>
