@@ -1,10 +1,19 @@
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand ">DonateNow</a>
+    <form class="d-flex" role="search">
+    <%= link_to 'Log in', new_user_session_path , class: 'btn btn-outline-light mx-3 log-in-btn' %>
+    <%= link_to 'Sign up', new_user_registration_path , class: 'btn btn-outline-light mx-3 log-in-btn' %>
+    </form>
+  </div>
+</nav>
 <div class="container">
   <div class="row">
     <% @charities.each do |charity| %>
       <div class="col-md-6 col-lg-4 mb-4">
         <div class="card">
           <div class="card-body">
-            <h1 class="card-title"><%= charity.name %></h1>
+            <h1 class="card-title "><%= charity.name %></h1>
             <p class="card-text"><%= charity.total_donations %> total donations</p>
             <p class="card-text"><%= charity.address %></p>
             <p class="card-text"><%= charity.cause.name %></p>
