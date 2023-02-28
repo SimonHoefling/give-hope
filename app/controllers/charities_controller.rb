@@ -30,6 +30,7 @@ class CharitiesController < ApplicationController
   def update
     @charity = Charity.find(params[:id])
     @charity.update(charity_params)
+    redirect_to charity_path(@charity)
   end
   private
 def charity_params
