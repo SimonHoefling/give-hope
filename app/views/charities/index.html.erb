@@ -3,23 +3,26 @@
     <a class="navbar-brand ">DonateNow</a>
     <%= form_tag charities_path, method: :get, class: 'd-flex' do %>
       <%= select_tag :cause, options_for_select([["All", ""], *Cause.all.map{ |c| [c.name, c.id] }]), prompt: "Select a cause", class: "form-select me-3" %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
+      <%= submit_tag "Search", class: "btn btn-success" %>
     <% end %>
     <%= link_to 'Log in', new_user_session_path , class: 'btn btn-outline-light mx-3 log-in-btn' %>
     <%= link_to 'Sign up', new_user_registration_path , class: 'btn btn-outline-light mx-3 log-in-btn' %>
   </div>
 </nav>
+
+
+<%# Charities grid  %>
 <div class="container">
-  <div class="row">
+  <div class="row justify-content-center text-center">
     <% @charities.each do |charity| %>
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card">
+      <div class="col-xl-4 col-sm-6 mb-3">
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
           <div class="card-body">
-            <h1 class="card-title "><%= charity.name %></h1>
+            <h5 class="card-title"><%= charity.name %></h5>
             <p class="card-text"><%= charity.total_donations %> total donations</p>
-            <p class="card-text"><%= charity.address %></p>
             <p class="card-text"><%= charity.cause.name %></p>
-            <%= link_to "go to charity", charity_path(charity) %>
+            <%= link_to "go to charity", charity_path(charity), class: "btn btn-success" %>
           </div>
         </div>
       </div>
