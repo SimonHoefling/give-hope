@@ -1,0 +1,25 @@
+<!-- app/views/charities/show.html.erb -->
+
+<h1><%= @charity.name %></h1>
+
+<table>
+  <tr>
+    <th>Total Donations:</th>
+    <td><%= @charity.total_donations %></td>
+  </tr>
+  <tr>
+    <th>Address:</th>
+    <td><%= @charity.address %></td>
+  </tr>
+  <tr>
+    <th>Accepting Donations:</th>
+    <td><%= @charity.accepting ? 'Yes' : 'No' %></td>
+  </tr>
+  <tr>
+    <th>Cause:</th>
+    <td><%= @charity.cause %></td>
+  </tr>
+</table>
+
+<%= link_to "Edit", edit_charity_path(@charity) %> |
+<%= link_to "Back to Charities", charities_path %>
