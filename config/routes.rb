@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :charities do
     resources :donations, only: [:create, :new]
   end
+  get "/profile", to: "pages#profile"
 end
