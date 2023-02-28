@@ -1,13 +1,18 @@
 class DonationsController < ApplicationController
-    before_action :set_restaurant, only: %i[new create]
+    before_action :set_charity, only: %i[new create]
     def new
-      @charity = Charity.new
+      @donation = Donation.new
+      @donation.charity = @charity
+      @donation.user = current_user
     end
 
 
     def create
       @donation = Donation.new(donation_params)
       @donation.charity = @charity
+      @donation.user = current_user
+      @donation.save
+      redirect_to charity_path(@charity)
     end
 
 
@@ -15,11 +20,11 @@ class DonationsController < ApplicationController
     private
 
     def donation_params
-      params.require(:restaurant).permit(:amount, :started, :ended, :user, :status, :charity)
+      params.require(:donation).permit(:amount, :started, :ended, :status)
     end
 
-    def set_Charity
-      @charity = charity.find(params[:charity_id])
+    def set_charity
+      @charity = Charity.find(params[:charity_id])
    end
 
 end

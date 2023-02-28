@@ -1,0 +1,21 @@
+<%= form_with model: [@charity, @donation] do |form| %>
+
+  <div class="field">
+    <%= form.label :donations_amount %>
+    <%= form.text_field :donations_amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :started %>
+    <%= form.date_field :started %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ended %>
+    <%= form.date_field :ended %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
