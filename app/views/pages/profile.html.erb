@@ -1,35 +1,87 @@
-<div class="container d-flex justify-content-center">
-  <div class="card shadow-lg">
-    <div class="card-header">
-      <h1>Welcome back, <%= @user.name %></h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card shadow-lg w-100">
+        <div class="card-header">
+          <h1>Welcome back, <%= @user.name %></h1>
+        </div>
+        <div class="card-body">
+          <h2 class="text-success">Your Donations</h2>
+          <canvas id="myChart" class=""></canvas>
+        </div>
+      </div>
     </div>
-    <div class="card-body">
-      <h2 class="text-success">Your Donations</h2>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Amount</th>
-            <th>Started</th>
-            <th>Ended</th>
-            <th>Charity name</th>
-            <th>Cause</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @donations.each do |donation| %>
-            <tr>
-              <td><%= donation.donations_amount %>$</td>
-              <td><%= donation.started %></td>
-              <td><%= donation.ended %></td>
-              <td><%= donation.charity.name %></td>
-              <td><%= donation.charity.cause.name %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+    <div class="col-md-4">
+      <div class="card shadow-lg w-100">
+        <div class="card-body">
+          <h2 class="text-success">Charities Donated to</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Charity</th>
+                <th>Cause</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @user.donations.each do |donation| %>
+              <tr>
+                <td><%= donation.charity.name %></td>
+                <td><%= donation.charity.cause.name %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
+  <div class="text-center my-3">
+    <%= link_to 'Charities list', charities_path, class: "btn btn-success" %>
+  </div>
 </div>
-<div class="text-center mt-3">
-  <%= link_to 'Charities list', charities_path, class: "btn btn-success" %>
-</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  function getMonthName(month) {
+    const monthNames = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+
+    return monthNames[month - 1];
+  }
+
+  let list_of_dates = []
+  let list_of_amounts = []
+
+  <% @user.donations.each do |donation| %>
+    list_of_amounts.push(<%= donation.donations_amount %>)
+    list_of_dates.push(getMonthName(<%= donation.started.month %>))
+  <% end %>
+
+  const ctx = document.getElementById('myChart').getContext('2d');
+  const myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: list_of_dates,
+      datasets: [{
+        label: "donations over time",
+        data: list_of_amounts,
+        fill: false,
+        borderColor: 'rgb(75, 192, 192)',
+        tension: 0.1
+      }]
+    },
+    options: {}
+  });
+</script>
