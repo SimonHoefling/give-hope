@@ -2,12 +2,14 @@ class CharitiesController < ApplicationController
 
   def index
     @charities = Charity.all
+    @charities.each do |charity|
+    charity.set_total_donations
+    end
   end
 
   def new
     @charity = Charity.new
   end
-
 
   def create
     @charity = Charity.new(charity_params)
@@ -16,6 +18,7 @@ class CharitiesController < ApplicationController
 
   def show
     @charity = Charity.find(params[:id])
+    @charity.set_total_donations
   end
 
   def edit
@@ -34,7 +37,9 @@ class CharitiesController < ApplicationController
   end
   private
 
-def charity_params
-  params.require(:charity).permit(:total_donations, :address, :accepting, :user, :cause)
-end
+  def charity_params
+    params.require(:charity).permit(:total_donations, :address, :accepting, :user, :cause)
+  end
+
+
 end
