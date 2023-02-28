@@ -33,7 +33,8 @@ class CharitiesController < ApplicationController
     redirect_to charity_path(@charity)
   end
   private
+
 def charity_params
-  params.require(:restaurant).permit(:total_donations, :address, :accepting, :user, :cause)
+  params.require(:charity).permit(:total_donations, :address, :accepting, :user, :cause)
 end
 end
