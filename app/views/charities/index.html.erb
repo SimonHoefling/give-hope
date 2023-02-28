@@ -1,10 +1,12 @@
 <nav class="navbar bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand ">DonateNow</a>
-    <form class="d-flex" role="search">
+    <%= form_tag charities_path, method: :get, class: 'd-flex' do %>
+      <%= select_tag :cause, options_for_select([["All", ""], *Cause.all.map{ |c| [c.name, c.id] }]), prompt: "Select a cause", class: "form-select me-3" %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
     <%= link_to 'Log in', new_user_session_path , class: 'btn btn-outline-light mx-3 log-in-btn' %>
     <%= link_to 'Sign up', new_user_registration_path , class: 'btn btn-outline-light mx-3 log-in-btn' %>
-    </form>
   </div>
 </nav>
 <div class="container">
@@ -17,7 +19,7 @@
             <p class="card-text"><%= charity.total_donations %> total donations</p>
             <p class="card-text"><%= charity.address %></p>
             <p class="card-text"><%= charity.cause.name %></p>
-            <%=link_to "go to charity", charity_path(charity) %>
+            <%= link_to "go to charity", charity_path(charity) %>
           </div>
         </div>
       </div>

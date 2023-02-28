@@ -5,6 +5,12 @@ class CharitiesController < ApplicationController
     @charities = Charity.all
     @charities.each do |charity|
     charity.set_total_donations
+  end
+    if params[:cause].present?
+      @charities = Charity.joins(:cause).where(causes: { id: params[:cause] })
+      @charities.each do |charity|
+        charity.set_total_donations
+      end
     end
   end
 
