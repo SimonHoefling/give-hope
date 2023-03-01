@@ -1,18 +1,14 @@
-<nav class="navbar bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand ">DonateNow</a>
+<%# Charities grid  %>
+<div class="container">
+  <%# categories search  %>
+  <div class="search-category mb-4">
     <%= form_tag charities_path, method: :get, class: 'd-flex' do %>
       <%= select_tag :cause, options_for_select([["All", ""], *Cause.all.map{ |c| [c.name, c.id] }]), prompt: "Select a cause", class: "form-select me-3" %>
       <%= submit_tag "Search", class: "btn btn-success" %>
     <% end %>
-    <%= link_to 'Log in', new_user_session_path , class: 'btn btn-outline-light mx-3 log-in-btn' %>
-    <%= link_to 'Sign up', new_user_registration_path , class: 'btn btn-outline-light mx-3 log-in-btn' %>
   </div>
-</nav>
+  <%# categories search  %>
 
-
-<%# Charities grid  %>
-<div class="container">
   <div class="row justify-content-center text-center">
     <% @charities.each do |charity| %>
       <div class="col-xl-4 col-sm-6 mb-3">
@@ -29,3 +25,4 @@
     <% end %>
   </div>
 </div>
+<%# Charities grid  %>

@@ -18,6 +18,12 @@ class DonationsController < ApplicationController
     end
 
 
+    private
+
+    def donation_params
+      params.require(:donation).permit(:donations_amount, :started, :ended, :status)
+
+
 
 
 
@@ -26,6 +32,7 @@ class DonationsController < ApplicationController
 
     def donation_params
       params.require(:donation).permit(:donations_amount, :started, :ended)
+
     end
 
     def set_charity
