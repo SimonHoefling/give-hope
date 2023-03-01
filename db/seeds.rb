@@ -40,7 +40,7 @@ Charity.destroy_all
 puts "Creating charities..."
 20.times do
   res = ""
-  sleep(0.6)
+  sleep(1.2)
   res = Net::HTTP.get_response(URI('https://source.unsplash.com/random/700x700/?charity'))
   Charity.create!(
     name: Faker::Company.name,
