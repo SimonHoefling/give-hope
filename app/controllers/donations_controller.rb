@@ -8,11 +8,6 @@ class DonationsController < ApplicationController
     end
 
 
-  def create
-    @donation = Donation.new(donation_params)
-    @donation.charity = @charity
-  end
-
 
     def create
       @donation = Donation.new(donation_params)
@@ -23,16 +18,14 @@ class DonationsController < ApplicationController
     end
 
 
-  def donation_params
-    params.require(:restaurant).permit(:amount, :started, :ended, :user, :status, :charity)
-  end
+
 
 
 
     private
 
     def donation_params
-      params.require(:donation).permit(:amount, :started, :ended, :status)
+      params.require(:donation).permit(:donations_amount, :started, :ended)
     end
 
     def set_charity
