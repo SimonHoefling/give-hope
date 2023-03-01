@@ -36,7 +36,6 @@ puts "Finished creating causes!"
 puts "Cleaning database for charities..."
 Charity.destroy_all
 
-
 puts "Creating charities..."
 20.times do
   res = ""
