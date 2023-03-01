@@ -1,46 +1,52 @@
 <!-- app/views/charities/show.html.erb -->
+<div class="d-flex align-items-center justify-content-center">
+  <div class="card mx-auto w-75">
+    <div class="card-body">
+      <h1><%= @charity.name %></h1>
 
-<h1><%= @charity.name %></h1>
+      <table class="table table-bordered">
+        <tr>
+          <th>Total Donations:</th>
+          <td><%= @charity.total_donations %></td>
+        </tr>
+        <tr>
+          <th>Address:</th>
+          <td><%= @charity.address %></td>
+        </tr>
+        <tr>
+          <th>Accepting Donations:</th>
+          <td><%= @charity.accepting ? 'Yes' : 'No' %></td>
+        </tr>
+        <tr>
+          <th>Cause:</th>
+          <td><%= @charity.cause.name %></td>
+        </tr>
+      </table>
 
-<table>
-  <tr>
-    <th>Total Donations:</th>
-    <td><%= @charity.total_donations %></td>
-  </tr>
-  <tr>
-    <th>Address:</th>
-    <td><%= @charity.address %></td>
-  </tr>
-  <tr>
-    <th>Accepting Donations:</th>
-    <td><%= @charity.accepting ? 'Yes' : 'No' %></td>
-  </tr>
-  <tr>
-    <th>Cause:</th>
-    <td><%= @charity.cause.name %></td>
-  </tr>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Amount</th>
-      <th>Start Date</th>
-      <th>End Date</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @charity.donations.each do |donation| %>
-      <tr>
-        <td><%= donation.user.name %></td>
-        <td><%= donation.donations_amount %></td>
-        <td><%= donation.started %></td>
-        <td><%= donation.ended %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to "Edit", edit_charity_path(@charity) %> |
-<%= link_to "Back to Charities", charities_path %>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Amount</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @charity.donations.each do |donation| %>
+            <tr>
+              <td><%= donation.user.name %></td>
+              <td><%= donation.donations_amount %></td>
+              <td><%= donation.started %></td>
+              <td><%= donation.ended %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="text-center">
+        <%= link_to "Edit", edit_charity_path(@charity), class: "btn btn-success" %>
+        <%= link_to "Back to Charities", charities_path, class: "btn btn-success" %>
+      </div>
+    </div>
+  </div>
+</div>
