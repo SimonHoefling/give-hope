@@ -16,7 +16,7 @@
           <%= image_tag charity.image, alt: "text", class:"card-img-top", style: "height: 18rem;" %>
           <div class="card-body">
             <h5 class="card-title"><%= charity.name %></h5>
-            <p class="card-text"><%= charity.total_donations %> total donations</p>
+            <p class="card-text"><%= charity.total_donations %>$ total donations</p>
             <p class="card-text"><%= charity.cause.name %></p>
             <%= link_to "Go to charity", charity_path(charity), class: "btn btn-success" %>
           </div>
