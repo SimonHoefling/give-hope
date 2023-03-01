@@ -7,22 +7,20 @@
       <%= submit_tag "Search", class: "btn btn-success" %>
     <% end %>
   </div>
-  <%# categories search  %>
+</div>
 
-  <div class="row justify-content-center text-center">
-    <% @charities.each do |charity| %>
-      <div class="col-xl-4 col-sm-6 mb-3">
-        <div class="card" style="width: 18rem;">
-          <%= image_tag charity.image, alt: "text", class:"card-img-top", style: "height: 18rem;" %>
-          <div class="card-body">
-            <h5 class="card-title"><%= charity.name %></h5>
-            <p class="card-text"><%= charity.total_donations %>$ total donations</p>
-            <p class="card-text"><%= charity.cause.name %></p>
-            <%= link_to "Go to charity", charity_path(charity), class: "btn btn-success" %>
-          </div>
+<%# Charities grid  %>
+<div class="cards container my-4">
+  <% @charities.each do |charity| %>
+    <a href="<%= charity_path(charity) %>">
+      <div class="index-card">
+        <%= image_tag charity.image, alt: "Description of charity", class:"carity-img" %>
+        <div class="content">
+          <h2 class="text-center"><strong><%= charity.name %></strong></h2>
+          <h5 class="text-center"><i><%= charity.total_donations %>$ total donations</i></h5>
+          <p class="text-center"><%= charity.cause.name %></p>
         </div>
       </div>
-    <% end %>
-  </div>
+    </a>
+  <% end %>
 </div>
-<%# Charities grid  %>
