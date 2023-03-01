@@ -7,6 +7,8 @@ gem 'faker'
 
 gem "devise"
 
+gem 'open-uri'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.2"
 
