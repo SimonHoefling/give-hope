@@ -4,8 +4,8 @@ class CharitiesController < ApplicationController
   def index
     @charities = Charity.all
     @charities.each do |charity|
-    charity.set_total_donations
-  end
+      charity.set_total_donations
+    end
     if params[:cause].present?
       @charities = Charity.joins(:cause).where(causes: { id: params[:cause] })
       @charities.each do |charity|

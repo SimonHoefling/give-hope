@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $main;
+  z-index: 1;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -10,3 +11,9 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.navbar-lewagon-transparent {
+  background: transparent;
+}
+// Move the search category from navbar to the page
+// add class to change the color of the navbar when they are in the index/show page

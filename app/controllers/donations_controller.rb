@@ -22,17 +22,10 @@ class DonationsController < ApplicationController
       redirect_to charity_path(@charity)
     end
 
-
-  def donation_params
-    params.require(:restaurant).permit(:amount, :started, :ended, :user, :status, :charity)
-  end
-
-
-
     private
 
     def donation_params
-      params.require(:donation).permit(:amount, :started, :ended, :status)
+      params.require(:donation).permit(:donations_amount, :started, :ended, :status)
     end
 
     def set_charity
