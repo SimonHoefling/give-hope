@@ -1,13 +1,29 @@
-<%= form_with model: [@charity, @donation] do |form| %>
+<div class="text-center">
+  <h1>Your donation</h1>
+</div>
+<div class="card mx-auto" style="max-width: 500px;">
+  <div class="card-body">
+    <%= form_with model: [@charity, @donation], local: true do |form| %>
+      <div class="form-group">
+        <%= form.label :donations_amount %>
+        <%= form.number_field :donations_amount, class: "form-control" %>
+      </div>
 
-    <%= form.label :donations_amount %>
-    <%= form.number_field :donations_amount %>
 
-    <%= form.label :started %>
-    <%= form.date_field :started %>
+      <div class="form-group">
+        <%= form.label :started %>
+        <%= form.date_field :started, class: "form-control" %>
+      </div>
 
-    <%= form.label :ended %>
-    <%= form.date_field :ended %>
+      <div class="form-group">
+        <%= form.label :ended %>
+        <%= form.date_field :ended, class: "form-control" %>
+      </div>
 
-    <%= form.submit %>
-<%end%>
+      <div class="form-actions">
+        <%= form.submit "Submit", class: "btn btn-success mt-3" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
