@@ -21,16 +21,6 @@ class DonationsController < ApplicationController
     private
 
     def donation_params
-      params.require(:donation).permit(:donations_amount, :started, :ended, :status)
-
-
-
-
-
-
-    private
-
-    def donation_params
       params.require(:donation).permit(:donations_amount, :started, :ended)
 
     end
