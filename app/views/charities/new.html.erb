@@ -19,11 +19,6 @@
         </div>
 
         <div class="form-group">
-          <%= form.label :total_donations %>
-          <%= form.number_field :total_donations, class: "form-control" %>
-        </div>
-
-        <div class="form-group">
           <%= form.label :address %>
           <%= form.text_field :address, class: "form-control" %>
         </div>
@@ -34,9 +29,9 @@
         </div>
 
         <div class="form-group">
-          <%= form.label :cause %>
-          <%= form.text_field :cause, class: "form-control" %>
-        </div>
+  <%= form.label :cause %>
+  <%= form.collection_select :cause_id, Cause.all, :id, :name, { prompt: true }, class: "form-control" %>
+</div>
 
         <div class="form-actions text-center">
           <%= form.submit "Create Charity", class: "btn btn-success mt-3" %>
