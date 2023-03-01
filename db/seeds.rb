@@ -1,17 +1,11 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
+require 'json'
+require 'net/http'
+require 'uri'
 
-# CHARITY name, description, address, total_donations, accepting
-
-# USER email
-
-#USER
+# USER
 puts "Cleaning database for users..."
 User.destroy_all
 
@@ -21,11 +15,11 @@ puts "Creating users..."
     email: Faker::Internet.email,
     name: Faker::Name.name,
     password: "123456"
-    )
-    end
+  )
+end
 puts "Finished creating users!"
 
-#CAUSE
+# CAUSE
 puts "Cleaning database for causes..."
 Cause.destroy_all
 
@@ -38,25 +32,28 @@ Cause.create!(name: "Education")
 
 puts "Finished creating causes!"
 
-#CHARITY
-
+# CHARITY
 puts "Cleaning database for charities..."
 Charity.destroy_all
 
+
 puts "Creating charities..."
 20.times do
+  res = ""
+  res = Net::HTTP.get_response(URI('https://source.unsplash.com/random/700%C3%97700/?charity'))
   Charity.create!(
     name: Faker::Company.name,
+    image: res['location'],
     description: Faker::Lorem.paragraph,
     address: Faker::Address.full_address,
     accepting: true,
     user: User.all.sample,
     cause: Cause.all.sample
-    )
-    end
+  )
+end
 puts "Finished creating charities!"
 
-#DONATION
+# DONATION
 puts "Cleaning database for donations..."
 Donation.destroy_all
 
@@ -70,5 +67,5 @@ puts "Creating donations..."
     ended: ended,
     user: User.all.sample,
     charity: Charity.all.sample
-    )
-    end
+  )
+end

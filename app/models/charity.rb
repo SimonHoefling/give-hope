@@ -1,6 +1,7 @@
 class Charity < ApplicationRecord
   belongs_to :user
   belongs_to :cause
+  has_one_attached :photo
   has_many :donations, dependent: :destroy
 
   def set_total_donations
