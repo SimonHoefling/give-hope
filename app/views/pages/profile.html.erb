@@ -1,1 +1,9 @@
 <h1>Welcome back, <%= @user.name %></h1>
+<h2>Your Donations</h2>
+<ul>
+  <% @donations.each do |donation| %>
+    <li><%= donation.donations_amount%></li>
+    <li><%= donation.started %></li>
+    <li><%= donation.ended %></li>
+  <% end %>
+</ul>
