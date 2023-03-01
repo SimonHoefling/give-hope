@@ -20,7 +20,7 @@ end
 puts "Finished creating users!"
 
 # CAUSE
-puts "Cleaning database for causes..."
+puts "Cleaning database for causes...."
 Cause.destroy_all
 
 puts "Creating causes..."
