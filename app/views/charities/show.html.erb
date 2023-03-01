@@ -33,7 +33,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @charity.donations.each do |donation| raise %>
+          <% @charity.donations.each do |donation| %>
             <tr>
               <td><%= donation.user.name %></td>
               <td><%= donation.donations_amount %></td>
