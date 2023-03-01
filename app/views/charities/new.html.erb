@@ -1,47 +1,48 @@
-<!-- app/views/charities/new.html.erb -->
+<div class="container d-flex justify-content-center mt-5">
+  <div class="card w-75">
+    <div class="card-body">
+      <%= form_with model: @charity, url: charities_path do |form| %>
+        <% if @charity.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@charity.errors.count, "error") %> prohibited this charity from being saved:</h2>
+            <ul>
+            <% @charity.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
 
-<h1>New Charity</h1>
+        <div class="form-group">
+          <%= form.label :name %>
+          <%= form.text_field :name, class: "form-control" %>
+        </div>
 
-<%= form_with model: @charity, url: charities_path do |form| %>
-  <% if @charity.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@charity.errors.count, "error") %> prohibited this charity from being saved:</h2>
-      <ul>
-      <% @charity.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <div class="form-group">
+          <%= form.label :total_donations %>
+          <%= form.number_field :total_donations, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :address %>
+          <%= form.text_field :address, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :accepting %>
+          <%= form.select :accepting, [['Yes', true], ['No', false]], {}, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :cause %>
+          <%= form.text_field :cause, class: "form-control" %>
+        </div>
+
+        <div class="form-actions text-center">
+          <%= form.submit "Create Charity", class: "btn btn-success mt-3" %>
+          <%= link_to "Back to Charities", charities_path, class: "btn btn-secondary mt-3" %>
+        </div>
       <% end %>
-      </ul>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
   </div>
-
-  <div class="field">
-    <%= form.label :total_donations %>
-    <%= form.number_field :total_donations %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :accepting %>
-    <%= form.select :accepting, [['Yes', true], ['No', false]] %>
-  </div>
-
-  <div class="field">
-    <%= form.label :cause %>
-    <%= form.text_field :cause %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "Create Charity" %>
-  </div>
-<% end %>
-
-<%= link_to "Back to Charities", charities_path %>
+</div>
