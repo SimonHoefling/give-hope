@@ -1,3 +1,18 @@
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
+		<script>
+  		$(document).ready(function() {
+    			var description = new Typed('#typed', {
+        		strings: ['Giving made easy.', 'Change starts here.', 'Donate for good.', 'Empower the world.', 'Join the movement.'],
+        		loop : "true",
+        		cursorChar:"",
+        		backDelay:"2000",
+        		typeSpeed:"9",
+        		backSpeed:"7"
+
+    		})
+		})
+		</script>
 <div class="home-container">
 <nav class="navbar bg-body-tertiary">
   <div class="container-fluid">
@@ -9,13 +24,16 @@
   </div>
 </nav>
 
-  <h1 class="text-white heading">Your way to help</h1>
 
-  <form class="text-center mt-5 search-form" action="/search" method="get">
-      <input type="text" name="q" placeholder="&#xF002; Search" class="fas input-form" style="font-family: Arial, Font Awesome 6 Free">
-      <button class="submit-btn" type="submit">Find a charity</button>
-  </form>
+  <h1 class="text-white heading"><span id="typed"></span></h1>
 
 
-  <%# <button  class='list-btn text-center'><%= link_to 'List charities', charities_path, class: 'listing-link'%></button> %>
+<%= form_tag charities_path, method: :get, class: 'text-center mt-5 search-form d-flex px-5' do %>
+      <%= select_tag :cause, options_for_select([["All", ""], *Cause.all.map{ |c| [c.name, c.id] }]), prompt: "Select a cause", class: "form-select me-3 py-4 " %>
+      <%= submit_tag "Search", class: "btn btn-success" %>
+    <% end %>
+
+
+
+  <%# <button  class='list-btn text-center'><%= link_to 'List charities', charities_path, class: 'listing-link'%>
 </div>
