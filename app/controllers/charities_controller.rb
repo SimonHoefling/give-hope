@@ -1,3 +1,5 @@
+require 'net/http'
+require 'uri'
 class CharitiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
@@ -19,8 +21,12 @@ class CharitiesController < ApplicationController
   end
 
   def create
+    res = Net::HTTP.get_response(URI('https://source.unsplash.com/random/700x700/?charity'))
     @charity = Charity.new(charity_params)
+    @charity.user = current_user
+    @charity.image = res['location']
     @charity.save
+    redirect_to charity_path(@charity)
   end
 
   def show
@@ -45,7 +51,7 @@ class CharitiesController < ApplicationController
   private
 
   def charity_params
-    params.require(:charity).permit(:total_donations, :address, :accepting, :user, :cause)
+    params.require(:charity).permit(:name, :total_donations, :address, :accepting, :cause_id)
   end
 
 
