@@ -1,20 +1,36 @@
 <!-- app/views/charities/edit.html.erb -->
 
-<h1>Edit <%= @charity.name %></h1>
-
-<%= form_with model: @charity do |form| %>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-    <%= form.label :total_donations %>
-    <%= form.number_field :total_donations %>
-    <%= form.label :address %>
-    <%= form.text_field :address %>
-    <%= form.label :accepting %>
-    <%= form.select :accepting, [['Yes', true], ['No', false]], selected: @charity.accepting %>
-    <%= form.label :cause %>
-    <%= form.text_field :cause %>
-    <%= form.submit %>
-<% end %>
-
-<%= link_to "Cancel", charity_path(@charity) %> |
-<%= link_to "Back to Charities", charities_path %>
+<div class="container d-flex justify-content-center align-items-center mt-5">
+  <div class="card w-50">
+    <div class="card-body">
+      <h1 class="card-title mb-4">Edit <%= @charity.name %></h1>
+      <%= form_with model: @charity do |form| %>
+        <div class="mb-3">
+          <%= form.label :name, class: "form-label" %>
+          <%= form.text_field :name, class: "form-control" %>
+        </div>
+        <div class="mb-3">
+          <%= form.label :total_donations, class: "form-label" %>
+          <%= form.number_field :total_donations, class: "form-control" %>
+        </div>
+        <div class="mb-3">
+          <%= form.label :address, class: "form-label" %>
+          <%= form.text_field :address, class: "form-control" %>
+        </div>
+        <div class="mb-3">
+          <%= form.label :accepting, class: "form-label" %>
+          <%= form.select :accepting, [['Yes', true], ['No', false]], {selected: @charity.accepting}, {class: "form-select"} %>
+        </div>
+        <div class="mb-3">
+          <%= form.label :cause, class: "form-label" %>
+          <%= form.text_field :cause, class: "form-control" %>
+        </div>
+        <%= form.submit "Save Changes", class: "btn btn-success" %>
+      <% end %>
+      <div class="mt-3">
+        <%= link_to "Cancel", charity_path(@charity), class: "btn btn-secondary me-2" %>
+        <%= link_to "Back to Charities", charities_path, class: "btn btn-outline-secondary" %>
+      </div>
+    </div>
+  </div>
+</div>
