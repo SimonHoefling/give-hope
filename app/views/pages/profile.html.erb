@@ -2,8 +2,9 @@
   <div class="row">
     <div class="col-md-12 col-lg-8 mb-3">
       <div class="card shadow-lg w-100">
-        <div class="card-header">
+        <div class="card-header d-flex">
           <h1>Welcome back, <%= @user.name %></h1>
+          <%= cl_image_tag current_user.photo.key, class: "avatar my-2 mx-3" %>
         </div>
         <div class="card-body">
           <h2 class="text-success">Your Donations</h2>
