@@ -1,13 +1,13 @@
 <!-- app/views/charities/show.html.erb -->
 <div class="d-flex align-items-center justify-content-center">
-  <div class="card mx-auto w-75">
+  <div class="card mx-auto w-75 shadow-lg">
     <div class="card-body">
       <h1><%= @charity.name %></h1>
 
       <table class="table table-bordered">
         <tr>
           <th>Total Donations:</th>
-          <td><%= @charity.total_donations %></td>
+          <td><i><%= @charity.total_donations %>$</i></td>
         </tr>
         <tr>
           <th>Address:</th>
@@ -36,7 +36,7 @@
           <% @charity.donations.each do |donation| %>
             <tr>
               <td><%= donation.user.name %></td>
-              <td><%= donation.donations_amount %></td>
+              <td><i><%= donation.donations_amount %>$</i></td>
               <td><%= donation.started %></td>
               <td><%= donation.ended %></td>
             </tr>
