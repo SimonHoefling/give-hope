@@ -11,5 +11,4 @@ class Charity < ApplicationRecord
     end
     self.total_donations = total_donations
   end
-
 end
