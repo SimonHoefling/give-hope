@@ -1,15 +1,4 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-8">
-      <div class="card shadow-lg w-100">
-        <div class="card-header">
-          <h1>Welcome back, <%= @user.name %></h1>
-        </div>
-        <div class="card-body">
-          <h2 class="text-success">Your Donations</h2>
-          <canvas id="myChart" class=""></canvas>
-        </div>
-      </div>
+
     </div>
     <div class="col-md-4">
       <div class="card shadow-lg w-100">
@@ -39,6 +28,7 @@
     <%= link_to 'Charities list', charities_path, class: "btn btn-success" %>
   </div>
 </div>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
@@ -85,3 +75,4 @@
     options: {}
   });
 </script>
+
