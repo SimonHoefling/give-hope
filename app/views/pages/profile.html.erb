@@ -42,13 +42,15 @@
               <tr>
                 <th>Charity</th>
                 <th>Cause</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
               <% @user.charities.each do |charity|%>
-              <tr>
-                <td><%= link_to charity.name, charity_path(charity), class:"text-success", style:"text-decoration: none;" %></td>
-                <td><%= charity.cause.name %></td>
+              <tr >
+                <td style="vertical-align: middle;"><%= link_to charity.name, charity_path(charity), class:"text-success", style:"text-decoration: none;" %></td>
+                <td style="vertical-align: middle;"><%= charity.cause.name %></td>
+                <td><%= link_to 'Edit', edit_charity_path(charity), class: "text-decoration-none btn btn-success rounded" %></td>
               </tr>
               <% end %>
             </tbody>
@@ -58,6 +60,8 @@
     </div>
   </div>
 </div>
+
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
