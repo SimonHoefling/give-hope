@@ -31,7 +31,12 @@
                 <%= link_to "Create new charity", new_charity_path, class: "nav-link btn btn-outline-light mx-3 my-2 log-in-btn" %>
               </li>
               <li class="nav-item dropdown">
-                <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle my-2 mx-3", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <%# Profile photo %>
+              <% if current_user.photo.attached? %>
+                <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle my-2 mx-3", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% else %>
+                <%= image_tag 'default_profile.jpeg', class: "avatar dropdown-toggle my-2 mx-3", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% end %>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                   <%= link_to "Action", "#", class: "dropdown-item" %>
                   <%= link_to "Another action", "#", class: "dropdown-item" %>

@@ -3,7 +3,7 @@
   <%# categories search  %>
   <div class="search-category mb-4">
     <%= form_tag charities_path, method: :get, class: 'd-flex my-5' do %>
-      <%= select_tag :cause, options_for_select([["All", ""], *Cause.all.map{ |c| [c.name, c.id] }]), prompt: "Select a cause", class: "form-select me-3 rounded-pill" %>
+      <%= select_tag :cause, options_for_select([["All", ""], *Cause.all.map{ |c| [c.name, c.id] }]), prompt: "Select a cause", class: "form-select me-3 rounded-pill shadow" %>
       <%= submit_tag "Search", class: "btn btn-success rounded-pill" %>
     <% end %>
   </div>
@@ -14,7 +14,11 @@
   <% @charities.each do |charity| %>
     <a href="<%= charity_path(charity) %>">
       <div class="index-card">
-        <%= image_tag charity.image, alt: "Description of charity", class:"carity-img" %>
+        <% if charity.photo.attached? %>
+          <%= cl_image_tag charity.photo.key, alt: "Description of charity", class:"carity-img" %>
+        <% else %>
+          <%= image_tag 'charity-default.jpeg', alt: "Description of charity", class:"carity-img" %>
+        <% end %>
         <div class="content">
           <h2 class="text-center"><strong><%= charity.name %></strong></h2>
           <h5 class="text-center"><i><%= charity.total_donations %>$ total donations</i></h5>

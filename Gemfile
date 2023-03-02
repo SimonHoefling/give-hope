@@ -9,6 +9,8 @@ gem "devise"
 
 gem 'open-uri'
 
+gem "cloudinary"
+
 gem "dotenv-rails", groups: [:development, :test]
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
