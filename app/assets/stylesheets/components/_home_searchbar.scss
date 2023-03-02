@@ -1,0 +1,13 @@
+.search-bar {
+  opacity: 80%;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 100%;
+    text-decoration: none;
+  }
+
+  .form-select {
+    padding-left: 40px;
+  }
+}
