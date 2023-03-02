@@ -15,18 +15,12 @@
 		</script>
 <div class="home-container">
 
+<%# Moving text %>
+<h1 class="text-white heading"><span id="typed"></span></h1>
 
-
-
-  <h1 class="text-white heading"><span id="typed"></span></h1>
-
-
-<%= form_tag charities_path, method: :get, class: 'text-center mt-5 search-form d-flex px-5' do %>
-      <%= select_tag :cause, options_for_select([["All", ""], *Cause.all.map{ |c| [c.name, c.id] }]), prompt: "Select a cause", class: "form-select me-3 py-4 " %>
-      <%= submit_tag "Search", class: "btn btn-success" %>
-    <% end %>
-
-
-
-  <%# <button  class='list-btn text-center'><%= link_to 'List charities', charities_path, class: 'listing-link'%>
+<%# Search bar %>
+  <%= form_tag charities_path, method: :get, class: 'text-center mt-5 search-form d-flex px-5 search-bar' do %>
+    <%= select_tag :cause, options_for_select([["All", ""], *Cause.all.map{ |c| [c.name, c.id] }]), prompt: "Select a cause", class: "form-select me-3 py-4 rounded-pill" %>
+    <%= submit_tag "Search", class: "btn btn-success rounded-pill" %>
+  <% end %>
 </div>

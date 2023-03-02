@@ -2,9 +2,9 @@
 <div class="container">
   <%# categories search  %>
   <div class="search-category mb-4">
-    <%= form_tag charities_path, method: :get, class: 'd-flex' do %>
-      <%= select_tag :cause, options_for_select([["All", ""], *Cause.all.map{ |c| [c.name, c.id] }]), prompt: "Select a cause", class: "form-select me-3" %>
-      <%= submit_tag "Search", class: "btn btn-success" %>
+    <%= form_tag charities_path, method: :get, class: 'd-flex my-5' do %>
+      <%= select_tag :cause, options_for_select([["All", ""], *Cause.all.map{ |c| [c.name, c.id] }]), prompt: "Select a cause", class: "form-select me-3 rounded-pill" %>
+      <%= submit_tag "Search", class: "btn btn-success rounded-pill" %>
     <% end %>
   </div>
 </div>
