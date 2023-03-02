@@ -1,5 +1,6 @@
+<%# YOUR DONATIONS TABLE %>
 <div class="container d-flex justify-content-center">
-  <div class="card shadow-lg">
+  <div class="card shadow">
     <div class="card-header">
       <h1>Welcome back, <%= @user.name %></h1>
     </div>
@@ -30,6 +31,31 @@
     </div>
   </div>
 </div>
+<%# YOUR DONATIONS TABLE %>
+
+<%# BACK TO CHARITIES BUTTON %>
 <div class="text-center mt-3">
   <%= link_to 'Charities list', charities_path, class: "btn btn-success" %>
 </div>
+<%# BACK TO CHARITIES BUTTON %>
+
+<%# YOUR CHARITIES %>
+<div class="text-center mt-5 mb-5">
+  <h1 class="text-success">Your Charities</h1>
+</div>
+<div class="text-center mt-5 mb-5">
+  <div class="cards container my-4">
+  <% @charities.each do |charity| %>
+    <a href="<%= charity_path(charity) %>">
+      <div class="index-card">
+        <%= image_tag charity.image, alt: "Description of charity", class:"carity-img" %>
+        <div class="content">
+          <h2 class="text-center"><strong><%= charity.name %></strong></h2>
+          <h5 class="text-center"><i><%= charity.total_donations %>$ total donations</i></h5>
+          <p class="text-center"><%= charity.cause.name %></p>
+        </div>
+      </div>
+    </a>
+  <% end %>
+</div>
+<%# YOUR CHARITIES %>
