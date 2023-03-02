@@ -1,61 +1,78 @@
-<%# YOUR DONATIONS TABLE %>
-<div class="container d-flex justify-content-center">
-  <div class="card shadow">
-    <div class="card-header">
-      <h1>Welcome back, <%= @user.name %></h1>
-    </div>
-    <div class="card-body">
-      <h2 class="text-success">Your Donations</h2>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Amount</th>
-            <th>Started</th>
-            <th>Ended</th>
-            <th>Charity name</th>
-            <th>Cause</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @donations.each do |donation| %>
-            <tr>
-              <td><%= donation.donations_amount %>$</td>
-              <td><%= donation.started %></td>
-              <td><%= donation.ended %></td>
-              <td><%= donation.charity.name %></td>
-              <td><%= donation.charity.cause.name %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-<%# YOUR DONATIONS TABLE %>
 
-<%# BACK TO CHARITIES BUTTON %>
-<div class="text-center mt-3">
-  <%= link_to 'Charities list', charities_path, class: "btn btn-success" %>
-</div>
-<%# BACK TO CHARITIES BUTTON %>
-
-<%# YOUR CHARITIES %>
-<div class="text-center mt-5 mb-5">
-  <h1 class="text-success">Your Charities</h1>
-</div>
-<div class="text-center mt-5 mb-5">
-  <div class="cards container my-4">
-  <% @charities.each do |charity| %>
-    <a href="<%= charity_path(charity) %>">
-      <div class="index-card">
-        <%= image_tag charity.image, alt: "Description of charity", class:"carity-img" %>
-        <div class="content">
-          <h2 class="text-center"><strong><%= charity.name %></strong></h2>
-          <h5 class="text-center"><i><%= charity.total_donations %>$ total donations</i></h5>
-          <p class="text-center"><%= charity.cause.name %></p>
+    </div>
+    <div class="col-md-4">
+      <div class="card shadow-lg w-100">
+        <div class="card-body">
+          <h2 class="text-success">Charities Donated to</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Charity</th>
+                <th>Cause</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @user.donations.each do |donation| %>
+              <tr>
+                <td><%= donation.charity.name %></td>
+                <td><%= donation.charity.cause.name %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
         </div>
       </div>
-    </a>
-  <% end %>
+    </div>
+  </div>
+  <div class="text-center my-3">
+    <%= link_to 'Charities list', charities_path, class: "btn btn-success" %>
+  </div>
 </div>
-<%# YOUR CHARITIES %>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  function getMonthName(month) {
+    const monthNames = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+
+    return monthNames[month - 1];
+  }
+
+  let list_of_dates = []
+  let list_of_amounts = []
+
+  <% @user.donations.each do |donation| %>
+    list_of_amounts.push(<%= donation.donations_amount %>)
+    list_of_dates.push(getMonthName(<%= donation.started.month %>))
+  <% end %>
+
+  const ctx = document.getElementById('myChart').getContext('2d');
+  const myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: list_of_dates,
+      datasets: [{
+        label: "donations over time",
+        data: list_of_amounts,
+        fill: false,
+        borderColor: 'rgb(75, 192, 192)',
+        tension: 0.1
+      }]
+    },
+    options: {}
+  });
+</script>
+
