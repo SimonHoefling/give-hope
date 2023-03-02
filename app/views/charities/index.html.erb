@@ -19,7 +19,7 @@
         <% else %>
           <%= image_tag 'charity-default.jpeg', alt: "Description of charity", class:"carity-img" %>
         <% end %>
-        <div class="content">
+        <div class="content px-4">
           <h2 class="text-center"><strong><%= charity.name %></strong></h2>
           <h5 class="text-center"><i><%= charity.total_donations %>$ total donations</i></h5>
           <p class="text-center"><%= charity.cause.name %></p>
