@@ -41,7 +41,7 @@ class CharitiesController < ApplicationController
   def destroy
     @charity = Charity.find(params[:id])
     @charity.destroy
-    redirect_to profile
+    redirect_to profile_path
   end
 
   def update
@@ -54,6 +54,4 @@ class CharitiesController < ApplicationController
   def charity_params
     params.require(:charity).permit(:name, :total_donations, :address, :accepting, :cause_id, :photo)
   end
-
-
 end
