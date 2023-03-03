@@ -1,5 +1,5 @@
 <div class="container d-flex justify-content-center mt-5">
-  <div class="card w-75 shadow-lg">
+  <div class="card w-75 shadow">
     <div class="card-body">
       <%= form_with model: @charity, url: charities_path do |form| %>
         <% if @charity.errors.any? %>
@@ -13,27 +13,27 @@
           </div>
         <% end %>
 
-        <div class="form-group">
+        <div class="form-group mb-2">
           <%= form.label :name %>
           <%= form.text_field :name, class: "form-control" %>
         </div>
 
-        <div class="form-group">
+        <div class="form-group mb-2">
           <%= form.label :address %>
           <%= form.text_field :address, class: "form-control" %>
         </div>
 
-        <div class="form-group">
+        <div class="form-group mb-2">
           <%= form.label :accepting %>
           <%= form.select :accepting, [['Yes', true], ['No', false]], {}, class: "form-control" %>
         </div>
 
-        <div class="form-group">
+        <div class="form-group mb-2">
           <%= form.label :cause %>
           <%= form.collection_select :cause_id, Cause.all, :id, :name, { prompt: true }, class: "form-control" %>
         </div>
 
-        <div class="form-group">
+        <div class="form-group mt-4">
           <%= form.file_field :photo, as: :file %>
         </div>
 
