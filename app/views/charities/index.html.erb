@@ -17,7 +17,7 @@
         <% if charity.photo.attached? %>
           <%= cl_image_tag charity.photo.key, alt: "Description of charity", class:"carity-img" %>
         <% else %>
-          <%= image_tag 'charity-default.jpeg', alt: "Description of charity", class:"carity-img" %>
+          <%= image_tag 'charity-default.png', alt: "Description of charity", class:"carity-img" %>
         <% end %>
         <div class="content px-4">
           <h2 class="text-center"><strong><%= charity.name %></strong></h2>
