@@ -3,15 +3,14 @@
 <div class="container d-flex justify-content-center align-items-center mt-5">
   <div class="card w-50">
     <div class="card-body">
+    <div class="container d-flex justify-content-between">
       <h1 class="card-title mb-4">Edit <%= @charity.name %></h1>
+        <%= button_to "Delete charity", charity_path(@charity), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger rounded text-white mt-2' %>
+    </div>
       <%= form_with model: @charity do |form| %>
         <div class="mb-3">
           <%= form.label :name, class: "form-label" %>
           <%= form.text_field :name, class: "form-control" %>
-        </div>
-        <div class="mb-3">
-          <%= form.label :total_donations, class: "form-label" %>
-          <%= form.number_field :total_donations, class: "form-control" %>
         </div>
         <div class="mb-3">
           <%= form.label :address, class: "form-label" %>
@@ -23,7 +22,7 @@
         </div>
         <div class="mb-3">
           <%= form.label :cause, class: "form-label" %>
-          <%= form.text_field :cause, class: "form-control" %>
+          <%= select_tag :cause, options_for_select([["All", ""], *Cause.all.map{ |c| [c.name, c.id] }]), prompt: "Select a cause", class: "form-select me-3 rounded" %>
         </div>
         <%= form.submit "Save Changes", class: "btn btn-success" %>
       <% end %>

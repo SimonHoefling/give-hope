@@ -13,9 +13,9 @@
     .index-card {
       height: 500px;
       border-radius: $border-radius-card;
-      box-shadow: 1px -1px 14px -1px rgba(0,0,0,0.75);
-      -webkit-box-shadow: 1px -1px 14px -1px rgba(0,0,0,0.75);
-      -moz-box-shadow: 1px -1px 14px -1px rgba(0,0,0,0.75);
+      box-shadow: -1px -1px 10px 1px rgba(0,0,0,0.37);
+      -webkit-box-shadow: -1px -1px 10px 1px rgba(0,0,0,0.37);
+      -moz-box-shadow: -1px -1px 10px 1px rgba(0,0,0,0.37);
 
       &:hover {
         scale: 1.01;
@@ -34,11 +34,15 @@
       height: 40%;
 
       h2 {
-        margin-top: 10px;
+        margin-top: 15px;
+      }
+
+      h5 {
+        margin-top: 25px;
       }
 
       p {
-        margin-top: 20px;
+        margin-top: 25px;
       }
 
       .go-btn {
