@@ -13,14 +13,20 @@
     		})
 		})
 		</script>
-<div class="home-container">
+<div class="home-container w-100">
+<div class="darker d-flex align-items-center justify-content-center w-100">
+    <div class="text-center d-block w-100" >
+<h1 class="text-white heading"><span id="typed"></span>.</h1>
 
-<%# Moving text %>
-<h1 class="text-white heading"><span id="typed"></span></h1>
 
 <%# Search bar %>
-  <%= form_tag charities_path, method: :get, class: 'text-center mt-5 search-form d-flex px-5 search-bar' do %>
+  <%= form_tag charities_path, method: :get, class: 'text-center search-form d-flex px-5 search-bar' do %>
     <%= select_tag :cause, options_for_select([["All", ""], *Cause.all.map{ |c| [c.name, c.id] }]), prompt: "Select a cause", class: "form-select me-3 py-4 rounded-pill" %>
     <%= submit_tag "Search", class: "btn btn-success rounded-pill" %>
   <% end %>
+  </div>
+</div>
+<%# Moving text %>
+
+
 </div>
