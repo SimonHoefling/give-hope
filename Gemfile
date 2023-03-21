@@ -3,14 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.3"
 
-gem 'faker'
-
-gem "devise"
-
-gem 'open-uri'
-
-gem "cloudinary"
-
 gem "dotenv-rails", groups: [:development, :test]
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
@@ -86,3 +78,10 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# Added after create
+gem 'faker'
+gem 'devise'
+gem 'open-uri'
+gem 'cloudinary'
+gem 'dotenv-rails', groups: [:development, :test]
