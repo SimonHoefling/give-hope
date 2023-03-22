@@ -1,43 +1,44 @@
-    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon <%= "navbar-lewagon-transparent" if action_name == "home" %>">
-      <div class="container-fluid">
-        <%= link_to "/", class: "navbar-brand text-white" do %>
-          <strong>DonateNow</strong>
-        <% end %>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon <%= "navbar-lewagon-transparent" if action_name == "home" %>">
+  <div class="container-fluid">
+<%# Logo back to landing page %>
+    <%= link_to "/", class: "navbar-brand text-white" do %>
+      <strong class="navbar-logo">GiveHope</strong>
+    <% end %>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto">
-            <% if user_signed_in? %>
-              <li class="nav-item active">
-                <%= link_to "My profile", profile_path, class: "nav-link btn btn-outline-light mx-3 my-2 log-in-btn" %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "Create new charity", new_charity_path, class: "nav-link btn btn-outline-light mx-3 my-2 log-in-btn" %>
-              </li>
-              <li class="nav-item dropdown">
-              <%# Profile photo %>
-              <% if current_user.photo.attached? %>
-                <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle my-2 mx-3", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-              <% else %>
-                <%= image_tag 'default_profile.jpeg', class: "avatar dropdown-toggle my-2 mx-3", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-              <% end %>
-                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                  <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>
-                  <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
-                </div>
-              </li>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+<%# If user is signed in he gets my profile and create charity option %>
+      <ul class="navbar-nav me-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to "My profile", profile_path, class: "nav-link btn btn-outline-light mx-3 my-2 log-in-btn" %>
+          </li>
+          <li class="nav-item dropdown">
+<%# Profile image if user has on / if not he gets a default image --> on click the user get options %>
+            <% if current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle my-2 mx-3", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% else %>
-              <li class="nav-item">
-                <%= link_to "Login", new_user_session_path, class: "nav-link btn btn-outline-light mx-3 log-in-btn" %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "Sign up", new_user_registration_path, class: "nav-link btn btn-outline-light mx-3 log-in-btn" %>
-              </li>
+              <%= image_tag 'default_profile.jpeg', class: "avatar dropdown-toggle my-2 mx-3", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
-          </ul>
-        </div>
-      </div>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>
+              <%= link_to "Create new charity", new_charity_path, class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+            </div>
+          </li>
+        <% else %>
+<%# If the user is not loged in he gets the login/signup options %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link btn btn-outline-light mx-3 log-in-btn mt-1" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign up", new_user_registration_path, class: "nav-link btn btn-outline-light mx-3 log-in-btn mt-1" %>
+          </li>
+        <% end %>
+      </ul>
     </div>
+  </div>
+</div>
