@@ -9,3 +9,4 @@ puts "Creating users..."
 end
 
 puts "Finished creating #{User.count} users!"
+puts "---"

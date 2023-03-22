@@ -139,4 +139,6 @@ charities.each_with_index do |charity, i|
   new.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
   new.save
 end
+
 puts "Finished creating #{Charity.count} charities!"
+puts "---"

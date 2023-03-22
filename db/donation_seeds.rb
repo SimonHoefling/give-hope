@@ -13,3 +13,4 @@ puts "Creating donations..."
 end
 
 puts "Finished creating #{Donation.count} donations!"
+puts "---"
