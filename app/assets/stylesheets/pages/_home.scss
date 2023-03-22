@@ -21,41 +21,18 @@ body {
   height: 100%;
 }
 
-
-
-.input-form {
-  padding-left: 30px;
-  width: 50vw;
-  margin: 50px;
-  height: 60px;
-  border-radius: 30px;
-  border: none;
-  opacity: 75%;
-
-  &:focus {
-    outline: none;
-
-    &:hover {
-      opacity: 100%;
-
-    }
-  }
+.heading {
+ font-size: 8vw;
+ margin-top: 200px;
 }
 
-.submit-btn {
-  height: 60px;
-  width: 15vw;
-  border-radius: 30px;
-  border: none;
-  opacity: 75%;
+.start-btn{
+  font-size: 28px;
+  opacity: 80%;
 
   &:hover {
     opacity: 100%;
   }
-}
-
-.heading {
- font-size: 8vw;
 }
 
 .log-in-btn,
@@ -79,12 +56,3 @@ body {
     opacity: 100%;
   }
 }
-// .listing-link {
-//   text-decoration: none;
-//   color: black;
-
-//   &:hover {
-//     text-decoration: none;
-//     color: black;
-//   }
-// }

@@ -13,9 +13,6 @@
 <%# If user is signed in he gets my profile and create charity option %>
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "My profile", profile_path, class: "nav-link btn btn-outline-light mx-3 my-2 log-in-btn" %>
-          </li>
           <li class="nav-item dropdown">
 <%# Profile image if user has on / if not he gets a default image --> on click the user get options %>
             <% if current_user.photo.attached? %>
@@ -24,6 +21,7 @@
               <%= image_tag 'default_profile.jpeg', class: "avatar dropdown-toggle my-2 mx-3", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "My profile", profile_path, class: "dropdown-item" %>
               <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Create new charity", new_charity_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>

@@ -1,10 +1,9 @@
-<%# Charities grid  %>
+<%# Search-bar below %>
 <div class="container">
-  <%# categories search  %>
   <div class="search-category mb-4">
     <%= form_tag charities_path, method: :get, class: 'd-flex my-4' do %>
-      <%= select_tag :cause, options_for_select([["All", ""], *Cause.all.map{ |c| [c.name, c.id] }]), prompt: "Select a cause", class: "form-select shadow", id: "cause-select" %>
-      <%= submit_tag "Search", class: "btn btn-success mx-2 rounded" %>
+      <%= select_tag :cause, options_for_select([["All", ""], *Cause.all.map{ |c| [c.name, c.id] }]), prompt: "Select a cause", class: "form-select", id: "cause-select" %>
+      <%= submit_tag "Search", class: "btn btn-primary mx-2 rounded" %>
     <% end %>
   </div>
 </div>
@@ -21,6 +20,7 @@
         <% end %>
         <div class="content px-4">
           <h2 class="text-center"><strong><%= charity.name %></strong></h2>
+          <hr>
           <h5 class="text-center"><i><%= charity.total_donations %>$ total donations</i></h5>
           <p class="text-center"><%= charity.cause.name %></p>
         </div>
