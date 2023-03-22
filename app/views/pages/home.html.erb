@@ -1,32 +1,24 @@
-		<script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
-		<script>
-  		$(document).ready(function() {
-    			var description = new Typed('#typed', {
-        		strings: ['Giving made easy', 'Change starts here', 'Donate for good', 'Empower the world', 'Join the movement'],
-        		loop : "true",
-        		cursorChar:"",
-        		backDelay:"2000",
-        		typeSpeed:"9.8",
-        		backSpeed:"7"
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
+<script>
+  $(document).ready(function() {
+      var description = new Typed('#typed', {
+        strings: ['Giving made easy', 'Change starts here', 'Donate for good', 'Empower the world', 'Join the movement'],
+        loop : "true",
+        cursorChar:"",
+        backDelay:"2500",
+        typeSpeed:"9.8",
+        backSpeed:"7"
 
-    		})
-		})
-		</script>
+    })
+})
+</script>
+
 <div class="home-container w-100">
-<div class="bg-shadow d-flex align-items-center justify-content-center w-100">
+  <div class="bg-shadow d-flex align-items-centerw-100">
     <div class="text-center d-block w-100" >
-<h1 class="text-white heading"><span id="typed"></span>.</h1>
-
-
-<%# Search bar %>
-  <%= form_tag charities_path, method: :get, class: 'text-center search-form d-flex px-5 search-bar' do %>
-    <%= select_tag :cause, options_for_select([["All", ""], *Cause.all.map{ |c| [c.name, c.id] }]), prompt: "Select a cause", class: "form-select me-3 py-4" %>
-    <%= submit_tag "Search", class: "btn btn-success" %>
-  <% end %>
+    <%# Typed.js below %>
+    <h1 class="text-white heading"><span id="typed"></span>!</h1>
+    <%= link_to "GET STARTED", charities_path, class: "btn btn-outline-light start-btn mt-3" %>
   </div>
-</div>
-<%# Moving text %>
-
-
 </div>

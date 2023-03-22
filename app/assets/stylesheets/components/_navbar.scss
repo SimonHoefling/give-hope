@@ -2,7 +2,8 @@
   justify-content: space-between;
   background: $main;
   z-index: 1;
-  background-color: $success;
+  background-color: $blue;
+  padding: 0;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -10,7 +11,7 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 50px;
 }
 
 .navbar-lewagon-transparent {

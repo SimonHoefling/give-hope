@@ -7,10 +7,10 @@
           <%= cl_image_tag current_user.photo.key, class: "avatar my-2 mx-3" %>
         </div>
         <div class="card-body">
-          <h2 class="text-success">Your Donations</h2>
+          <h2 class="text-primary">Your Donations</h2>
           <canvas id="myChart" class=""></canvas>
         </div>
-        <%= link_to 'Want to donate more? See all charities!', charities_path, class: "btn btn-success btn-block" %>
+        <%= link_to 'Want to donate more? See all charities!', charities_path, class: "btn btn-primary btn-block" %>
       </div>
     </div>
     <div class="col-md-12 col-lg-4">
@@ -104,7 +104,7 @@
         label: "donations over time",
         data: list_of_amounts,
         fill: false,
-        borderColor: 'rgb(75, 192, 192)',
+        borderColor: 'rgb(16, 112, 166)',
         tension: 0.1
       }]
     },
