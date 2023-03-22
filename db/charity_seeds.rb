@@ -123,7 +123,7 @@ charities = [
 
 puts "Creating charities..."
 
-charities.each_with_index do |charity, i|
+charities.each do |charity|
   new = Charity.new(
     name: charity[:name],
     address: charity[:address],

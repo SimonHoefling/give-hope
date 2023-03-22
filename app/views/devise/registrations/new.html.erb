@@ -1,11 +1,9 @@
-<div class="text-center">
-  <h2>Sign up</h2>
-</div>
+ <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 offset-sm-4">
+      <div class="login-form">
 
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <div class="card shadow">
+        <h2>Sign up</h2>
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name),
           data: {turbo: false}) do |f| %>
           <%= f.error_notification %>
@@ -14,33 +12,34 @@
             <%= f.input :name,
                         required: true,
                         autofocus: true,
+                        placeholder: "John Doe",
                         input_html: { autocomplete: "name" },
                         label_html: { class: "form-label" } %>
             <%= f.input :email,
                         required: true,
                         autofocus: true,
+                        placeholder: "example@gmail.com",
                         input_html: { autocomplete: "email" },
                         label_html: { class: "form-label" } %>
             <%= f.input :password,
                         required: true,
+                        placeholder: "..........",
                         hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                         input_html: { autocomplete: "new-password" },
                         label_html: { class: "form-label" } %>
             <%= f.input :password_confirmation,
                         required: true,
+                        placeholder: "..........",
                         input_html: { autocomplete: "new-password" },
                         label_html: { class: "form-label" } %>
             <%= f.input :photo, as: :file %>
           </div>
 
-          <div class="card-footer">
-            <%= f.button :submit, "Sign up", class: "btn btn-success" %>
-          </div>
+          <%= f.button :submit, "Sign up", class: "btn btn-primary" %>
         <% end %>
 
-        <div class="card-footer">
-          <%= render "devise/shared/links" %>
-        </div>
+        <%= render "devise/shared/links" %>
+
       </div>
     </div>
   </div>
