@@ -25,3 +25,5 @@ require_relative 'user_seeds'
 require_relative 'cause_seeds'
 require_relative 'charity_seeds'
 require_relative 'donation_seeds'
+
+puts "All seeds got successfully created!!!"

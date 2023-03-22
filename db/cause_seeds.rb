@@ -9,3 +9,4 @@ Cause.create!(name: "Women's Empowerment")
 Cause.create!(name: "Enviroment")
 
 puts "Finished creating #{Cause.count} causes!"
+puts "---"
