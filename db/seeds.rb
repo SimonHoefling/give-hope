@@ -19,7 +19,7 @@ Charity.destroy_all
 puts "Cleaning database for donations..."
 Donation.destroy_all
 
-puts "-" * 50
+puts "-" * 40
 
 require_relative 'user_seeds'
 require_relative 'cause_seeds'
