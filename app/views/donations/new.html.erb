@@ -1,7 +1,5 @@
-<div class="text-center">
-  <h1>Your donation</h1>
-</div>
-<div class="card mx-auto" style="max-width: 500px;">
+<div class="card mx-auto mt-3" style="max-width: 500px;">
+  <h1 class="text-center mt-2">Your donation</h1>
   <div class="card-body">
     <%= form_with model: [@charity, @donation], local: true do |form| %>
       <div class="form-group">
@@ -21,9 +19,8 @@
       </div>
 
       <div class="form-actions">
-        <%= form.submit "Submit", class: "btn btn-success mt-3" %>
+        <%= form.submit "Submit", class: "btn btn-primary mt-3" %>
       </div>
     <% end %>
   </div>
 </div>
-
