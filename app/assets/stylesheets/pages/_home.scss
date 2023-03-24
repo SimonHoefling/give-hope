@@ -1,9 +1,10 @@
-// // Specific CSS for your home-page
+// Specific CSS for your home-page
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 .home-container {
   position:fixed;
   top: 0;
@@ -13,46 +14,83 @@ body {
   opacity: 100%;
   background-size: cover;
   background-position: center;
-}
+  .bg-shadow {
+    background-color: rgba(0,0,0,0.2);
+    width: 100%;
+    height: 100%;
+    .landing-container {
+      margin: 0 auto;
+      width: 75%;
+      height: 700px;
+// Typed JS heading
+    .heading {
+      font-size: 8vw;
+      margin-top: 180px;
+    }
+// Description
+    .description-lg {
+      display: inline-block;
+    }
+    .description-sm {
+      display: none;
+    }
+// Get started Button
+    .start-btn-lg {
+      display: inline-block;
+      font-size: 28px;
+      opacity: 80%;
+      margin-top: 70px;
 
-.bg-shadow {
-  background-color: rgba(0,0,0,0.2);
-  width: 100%;
-  height: 100%;
-}
-
-.heading {
- font-size: 8vw;
- margin-top: 200px;
-}
-
-.start-btn{
-  font-size: 28px;
-  opacity: 80%;
-
-  &:hover {
-    opacity: 100%;
+        &:hover {
+          opacity: 100%;
+        }
+      }
+    .start-btn-sm {
+      display: none;
+      font-size: 28px;
+      }
+    }
   }
 }
 
+
+// Login and Signup Button
 .log-in-btn,
 .sign-in-btn {
   text-decoration: none;
   color: white;
 }
 
-.list-btn {
-  position: absolute;
-  transform: translateX(-50%);
-  left: 50%;
-  top: 34rem;
-  width: 15vw;
-  height: 60px;
-  border-radius: 30px;
-  border: none;
-  opacity: 75%;
+// Media Breakpoint for Phonescreen
+@media only screen and (max-width: 576px) {
+  .home-container{
 
-  &:hover {
-    opacity: 100%;
+    .bg-shadow {
+
+      .landing-container {
+        width: 80%;
+
+        .heading {
+          font-size: 34px;
+          margin-top: 170px;
+        }
+        .description-lg {
+          display: none;
+        }
+        .description-sm {
+          display: inline-block;
+          font-size: 22px;
+        }
+        .start-btn-lg {
+          display: none;
+        }
+        .start-btn-sm {
+          display: inline-block;
+          margin-top: 100px;
+          font-size: 28px;
+          opacity: 70%;
+        }
+      }
+    }
   }
 }

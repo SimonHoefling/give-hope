@@ -15,10 +15,19 @@
 </script>
 
 <div class="home-container w-100">
-  <div class="bg-shadow d-flex align-items-centerw-100">
-    <div class="text-center d-block w-100" >
-    <%# Typed.js below %>
-    <h1 class="text-white heading"><span id="typed"></span>!</h1>
-    <%= link_to "GET STARTED", charities_path, class: "btn btn-outline-light start-btn mt-3" %>
+  <div class="bg-shadow d-flex align-items-center justify-content-center w-100">
+    <div class="text-center d-block">
+      <div class="landing-container">
+        <%# Typed.js below %>
+        <h1 class="heading text-white"><span id="typed"></span>!</h1>
+        <h4 class="description-lg text-white my-4">Empower your giving with GiveHope. Create your own charity, support causes you
+         care about, and inspire hope in those who need it most. Join our community of givers and help us make
+          the world a better place, one donation at a time.</h4>
+        <h4 class="description-sm text-white my-4">Join GiveHope, create your charity, support causes you care about, and inspire hope.
+         Let's make the world better together.</h4>
+        <%= link_to "GET STARTED", charities_path, class: "start-btn-lg btn btn-outline-light" %>
+        <%= link_to "GET STARTED", charities_path, class: "start-btn-sm btn btn-light" %>
+      </div>
+    </div>
   </div>
 </div>
