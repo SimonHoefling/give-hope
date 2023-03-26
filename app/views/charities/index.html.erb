@@ -3,7 +3,7 @@
   <div class="search-category mb-4">
     <%= form_tag charities_path, method: :get, class: 'd-flex my-4' do %>
       <%= select_tag :cause, options_for_select([["All", ""], *Cause.all.map{ |c| [c.name, c.id] }]), prompt: "Select a cause", class: "form-select", id: "cause-select" %>
-      <%= submit_tag "Search", class: "btn btn-primary mx-2 rounded" %>
+      <%= submit_tag "Search", class: "btn btn-primary mx-2 rounded me-0" %>
     <% end %>
   </div>
 </div>
