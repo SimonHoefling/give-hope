@@ -1,6 +1,9 @@
+// Search bar
 #cause-select {
   height: 60px;
 }
+
+// Card grid
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -12,7 +15,6 @@
     &:hover {
       color: inherit;
     }
-
     .index-card {
       height: 500px;
       border-radius: $border-radius-card;
@@ -24,75 +26,159 @@
         scale: 1.01;
         cursor: pointer;
       }
-
       .carity-img {
-        width: 100%;
+      width: 100%;
       height: 60%;
       border-radius: $border-radius-card $border-radius-card 0 0;
       object-fit: cover;
     }
-
     .content {
       width: 100%;
       height: 40%;
-
-      h2 {
+      .card-heading {
         margin-top: 15px;
         font-size: 24px;
+        height: 50px;
       }
-
-      h5 {
+      .donations-text {
         margin-top: 25px;
       }
-
-      p {
+      .cause-text {
         margin-top: 25px;
       }
+    }
+  }
+  }
+}
 
-      .go-btn {
-        margin-top: 20px;
-        margin-left: 60%;
+
+// Media queries for responsive design
+
+// Media Breakpoint for (bigger) Tabletscreen
+@media only screen and (max-width: 992px) {
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 60px;
+
+    a {
+      text-decoration: none;
+      .index-card {
+        height: 360px;
         border-radius: $border-radius-card;
+        box-shadow: -1px -1px 10px 1px rgba(0,0,0,0.2);
+        -webkit-box-shadow: -1px -1px 10px 1px rgba(0,0,0,0.2);
+        -moz-box-shadow: -1px -1px 10px 1px rgba(0,0,0,0.2);
+        .carity-img {
+        width: 100%;
+        height: 60%;
+        border-radius: $border-radius-card $border-radius-card 0 0;
+        object-fit: cover;
+      }
+      .content {
+        width: 100%;
+        height: 40%;
+        .card-heading {
+          margin-top: 10px;
+          font-size: 16px;
+          height: 20px;
+        }
+        .donations-text {
+          margin-top: 15px;
+          font-size: 12px;
+        }
+        .cause-text {
+          margin-top: 15px;
+          font-size: 12px;
+        }
       }
     }
-  }
+    }
   }
 }
 
-  /* Media queries for responsive design */
-  @media screen and (min-width: 312px) {
-    .cards {
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-gap: 60px;
-    }
-  }
+// Media Breakpoint for Tabletscreen
+@media only screen and (max-width: 840px) {
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 60px;
 
-  @media screen and (min-width: 576px) {
-    .cards {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 60px;
-
-      h2 {
-        font-size: 22px;
-        font-weight: bold;
+    a {
+      text-decoration: none;
+      .index-card {
+        height: 360px;
+        border-radius: $border-radius-card;
+        box-shadow: -1px -1px 10px 1px rgba(0,0,0,0.2);
+        -webkit-box-shadow: -1px -1px 10px 1px rgba(0,0,0,0.2);
+        -moz-box-shadow: -1px -1px 10px 1px rgba(0,0,0,0.2);
+        .carity-img {
+        width: 100%;
+        height: 60%;
+        border-radius: $border-radius-card $border-radius-card 0 0;
+        object-fit: cover;
+      }
+      .content {
+        width: 100%;
+        height: 40%;
+        .card-heading {
+          margin-top: 10px;
+          font-size: 16px;
+          height: 20px;
+        }
+        .donations-text {
+          margin-top: 15px;
+          font-size: 12px;
+        }
+        .cause-text {
+          margin-top: 15px;
+          font-size: 12px;
+        }
       }
     }
-  }
-
-  @media screen and (min-width: 768px) {
-    .cards {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 60px;
+    }
   }
 }
 
-  @media screen and (min-width: 992px) {
-    .cards {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-gap: 60px;
+// Media Breakpoint for Phonescreen
+@media only screen and (max-width: 576px) {
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+
+    a {
+      text-decoration: none;
+      .index-card {
+        height: 260px;
+        border-radius: $border-radius-card;
+        box-shadow: -1px -1px 10px 1px rgba(0,0,0,0.2);
+        -webkit-box-shadow: -1px -1px 10px 1px rgba(0,0,0,0.2);
+        -moz-box-shadow: -1px -1px 10px 1px rgba(0,0,0,0.2);
+        .carity-img {
+        width: 100%;
+        height: 60%;
+        border-radius: $border-radius-card $border-radius-card 0 0;
+        object-fit: cover;
+      }
+      .content {
+        width: 100%;
+        height: 40%;
+        .card-heading {
+          margin-top: 5px;
+          font-size: 12px;
+          height: 20px;
+        }
+        .donations-text {
+          margin-top: 5px;
+          font-size: 8px;
+        }
+        .cause-text {
+          margin-top: 5px;
+          font-size: 8px;
+        }
+      }
+    }
+    }
   }
 }
