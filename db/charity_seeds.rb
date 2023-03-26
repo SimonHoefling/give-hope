@@ -106,7 +106,7 @@ charities = [
     image: "animal-welfare-association.png"
   },
   {
-    name: "Society for the Prevention of Cruelty to Animals",
+    name: "Prevention of Cruelty to Animals",
     address: "Mumbai, India",
     description: "The Society for the Prevention of Cruelty to Animals is an animal welfare organization in India that works to protect and care for animals, including pets. They rescue and rehabilitate injured and sick animals, and also work to educate the public about animal welfare issues.",
     cause: "Animal Welfare",
