@@ -1,4 +1,5 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon <%= "navbar-lewagon-transparent" if action_name == "home" %>">
+<%# --> Navbar for Desktop %>
+<div class="navbar navbar-lg navbar-expand-sm navbar-light navbar-lewagon <%= "navbar-lewagon-transparent" if action_name == "home" %>">
   <div class="container-fluid">
 <%# Logo back to landing page %>
     <%= link_to "/", class: "navbar-brand text-white" do %>
@@ -40,3 +41,72 @@
     </div>
   </div>
 </div>
+
+
+<%# --> Navbar for Mobile Devices %>
+<nav class="navbar navbar-sm fixed-bottom">
+  <% if user_signed_in? %>
+<%# Home icon below to go back to landign page %>
+    <ul class="nav d-flex justify-content-evenly w-100 align-items-center">
+      <li class="nav-item">
+        <%= link_to root_path, class: "navbar-brand" do %>
+          <i class="fa fa-home"></i>
+        <% end %>
+      </li>
+<%# Dollar icon below for charity/index page %>
+      <li class="nav-item">
+        <%= link_to charities_path, class: "navbar-brand" do %>
+          <i class="fa-solid fa-dollar-sign"></i>
+        <% end %>
+      </li>
+<%# Plus icon below (only visible if you are loged in as a company) %>
+      <% if current_user %>
+        <li class="nav-item">
+          <%= link_to new_charity_path, class: "navbar-brand" do %>
+            <i class="fa-solid fa-plus"></i>
+          <% end %>
+        </li>
+      <% end %>
+<%# Gear icon with different options for hunter and company below %>
+      <li class="nav-item dropup">
+        <a class="nav-link dropdown-toggle p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa-solid fa-gear"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <% if current_user %>
+            <li><%= link_to "Profile", profile_path, class: "dropdown-item" %></li>
+            <li><%= link_to 'Edit profile', edit_user_registration_path, class: "dropdown-item" %></li>
+          <% end %>
+          <li><hr class="dropdown-divider"></li>
+          <li><%= link_to "All charities", charities_path, class: "dropdown-item"  %></li>
+        </ul>
+      </li>
+<%# Logout icon below %>
+      <li class="nav-item">
+        <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "navbar-brand" do %>
+          <i class="fa-solid fa-lock-open"></i>
+        <% end %>
+      </li>
+    </ul>
+<%# Default icons if nobody is loged in below %>
+  <% else %>
+    <ul class="nav d-flex justify-content-evenly w-100">
+      <li class="nav-item">
+        <%= link_to root_path, class: "navbar-brand" do %>
+          <i class="fa fa-home"></i>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to charities_path, class: "navbar-brand" do %>
+          <i class="fa-solid fa-dollar-sign"></i>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to new_user_session_path, class: "navbar-brand" do %>
+          <i class="fa-solid fa-lock"></i>
+        <% end %>
+      </li>
+    </ul>
+  <% end %>
+
+</nav>

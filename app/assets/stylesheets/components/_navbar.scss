@@ -1,26 +1,76 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: $main;
-  z-index: 1;
-  background-color: $blue;
-  padding: 0;
+.navbar-lg {
+  display: block;
+}
+.navbar-sm {
+  display: none;
+}
+// --> Navbar for Desktop
+@media only screen and (min-width: 480px) {
+  .navbar-lewagon {
+    justify-content: space-between;
+    background: $main;
+    z-index: 1;
+    background-color: $blue;
+    padding: 0;
+  }
+  .navbar-lg {
+    display: block;
+  }
+  .navbar-sm {
+    display: none;
+  }
+  .navbar-lewagon .navbar-collapse {
+    flex-grow: 0;
+  }
+
+  .navbar-lewagon .navbar-brand img {
+    width: 50px;
+  }
+
+  .navbar-lewagon-transparent {
+    background: transparent;
+  }
+
+  .navbar-logo {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 32px;
+  }
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+// --> Navbar for Mobile Devices
+@media only screen and (max-width: 479px) {
+  .navbar-lg {
+    display: none;
+  }
+  .navbar-sm {
+    display: block;
+  }
+  .dropdown-toggle::after {
+    display: none !important;
+  }
+  .navbar {
+    background-color: $blue;
+    bottom: -1px;
+  }
+  .navbar-brand {
+    margin: 0;
+    .fa.fa-home {
+      color: white;
+      font-size: 28px;
+    }
+    .fa-solid {
+      font-size: 28px;
+      color: white;
+    }
+  }
+  .fa-solid.fa-gear::before {
+    text-decoration: none;
+    color: white;
+    font-size: 28px;
+  }
+  .navbar {
+    ul {
+      padding: 12px 0;
+    }
+  }
 }
-
-.navbar-lewagon .navbar-brand img {
-  width: 50px;
-}
-
-.navbar-lewagon-transparent {
-  background: transparent;
-}
-
-.navbar-logo {
-  font-family: 'Roboto Mono', monospace;
-  font-size: 32px;
-}
-// Move the search category from navbar to the page
-// add class to change the color of the navbar when they are in the index/show page
