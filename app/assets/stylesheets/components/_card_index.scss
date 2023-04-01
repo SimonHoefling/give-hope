@@ -142,6 +142,9 @@
 
 // Media Breakpoint for Phonescreen
 @media only screen and (max-width: 576px) {
+  .card-container {
+    margin-bottom: 90px;
+  }
   .cards {
     display: grid;
     grid-template-columns: 1fr 1fr;
