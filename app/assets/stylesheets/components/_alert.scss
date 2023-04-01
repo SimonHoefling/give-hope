@@ -1,6 +1,19 @@
 .alert {
   position: fixed;
-  bottom: 16px;
+  top: 16px;
   right: 16px;
   z-index: 1000;
+}
+#alert {
+  background-color: $blue;
+  color: white;
+  animation: fadeOut 3s ease-in-out forwards;
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
