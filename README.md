@@ -12,6 +12,6 @@ For this project, I utilized Ruby as the backend and HTML5, SCSS, and JavaScript
 
 ## Demo
 
-This app is currently live on heroku and also aviable as a PWA version for phones.
+The app is available as a Progressive Web App (PWA) for phones and can also be accessed on desktop.
 
 http://give-hope.herokuapp.com/
