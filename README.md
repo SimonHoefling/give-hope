@@ -9,6 +9,43 @@ For this project, I utilized Ruby as the backend and HTML5, SCSS, and JavaScript
 
 ![App Screenshot](/app/assets/images/GiveHope-Screenshot-1.png)
 
+## Installation
+
+1. Clone project
+```bash
+git clone git@github.com:SimonHoefling/give-hope.git
+```
+2. Navigate into the folder
+```bash
+cd give-hope
+```
+3. Download dependencies
+```bash
+bundle install
+```
+4. Create Cloudinary account
+5. Create a .env file and add your private Cloudinary-key to it
+6. Create Database
+```bash
+rails db:create
+```
+7. Crate Scheema
+```bash
+rails db:migrate
+```
+8. Seed the Database
+```bash
+rails db:seed
+```
+9. Start the Server
+```bash
+rails s
+```
+or
+```bash
+dev
+```
+
 
 ## Demo
 
