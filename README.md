@@ -45,7 +45,7 @@ or
 ```bash
 dev
 ```
-10. Open the browser and got to localhost:3000
+10. Open the browser and go to localhost:3000
 
 
 ## Demo
